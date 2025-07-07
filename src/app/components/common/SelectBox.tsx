@@ -13,6 +13,7 @@ type selectProps = {
   name: string;
   placeholder?: string;
   defaultValue: string;
+  className?: string;
   options: {
     key: string;
     value: string;
@@ -22,6 +23,7 @@ type selectProps = {
 export default function SelectBox({
   name,
   placeholder = "",
+  className = "",
   defaultValue,
   options,
 }: selectProps) {
@@ -34,7 +36,7 @@ export default function SelectBox({
       defaultValue={defaultValue}
       onOpenChange={setOpen}
     >
-      <SelectTrigger className='w-[80px] border-b shadow-none'>
+      <SelectTrigger className={`${className} border-b shadow-none`}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

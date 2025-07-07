@@ -1,5 +1,5 @@
 import { Title2 } from "@components/ui/Typography";
-import SearchBox from "@/features/search/SearchBar";
+import SearchBox from "@/features/search/BookSearch";
 export default function SearchPage() {
   return (
     <div className='pt-36'>
