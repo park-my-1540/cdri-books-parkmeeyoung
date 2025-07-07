@@ -20,7 +20,7 @@ export default function SearchInput() {
   const isListOpen = isOpen && listToShow.length > 0;
 
   return (
-    <div className='w-full '>
+    <div className='w-full'>
       <div className='flex flex-row items-center gap-2 px-1 bg-lightGray rounded-full w-full cursor-text'>
         <input
           ref={inputRef}

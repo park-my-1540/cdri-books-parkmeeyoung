@@ -38,7 +38,7 @@ export default function BookCard({ book }: { book: BookSummary | BookDetail }) {
 
 function SummaryCard({ book, onToggle, isExpanded }: BookCardProps) {
   return (
-    <div className='border-b border-border grid grid-cols-[auto_1fr_240px] gap-[60px] py-2 pl-5 mt-6'>
+    <div className='border-b border-border gap-2 md:gap-[60px] grid grid-cols-[auto_1fr_240px] py-2 pl-5 mt-6'>
       <div className='rounded-full'>
         <Image
           width={48}
@@ -48,10 +48,16 @@ function SummaryCard({ book, onToggle, isExpanded }: BookCardProps) {
           src='https://picsum.photos/200/300'
         />
       </div>
-      <div className='grid grid-cols-[1fr_3fr_auto] items-center'>
-        <Title3>혼모노</Title3>
-        <Body2>성해나</Body2>
-        <Title3>13,320원</Title3>
+      <div className='grid grid-cols-[2fr_1fr] items-center justify-between'>
+        <p className='flex items-center justify-start gap-5'>
+          <Title3 className='text-ellipsis max-w-[250px] truncate'>
+            혼모노
+          </Title3>
+          <Body2 className='text-ellipsis max-w-[50px] truncate'>성해나</Body2>
+        </p>
+        <Title3 className='text-end text-ellipsis max-w-[200px] truncate'>
+          50,000원
+        </Title3>
       </div>
       <div className='w-full flex flex-row gap-2 items-center'>
         <Button className='flex-1'>구매하기</Button>
@@ -67,7 +73,7 @@ function SummaryCard({ book, onToggle, isExpanded }: BookCardProps) {
 
 function DetailCard({ book, onToggle, isExpanded }: BookCardProps) {
   return (
-    <div className='border-b border-border grid grid-cols-[auto_1fr_240px] gap-8 py-5 pl-5'>
+    <div className='border-b border-border grid grid-cols-[1fr_1fr_auto] md:grid-cols-[auto_1fr_240px] gap-1 md:gap-8 py-5 pl-5'>
       <div className='rounded-full'>
         <Image
           width={210}
@@ -80,7 +86,7 @@ function DetailCard({ book, onToggle, isExpanded }: BookCardProps) {
       <div className='flex flex-col justify-center gap-5'>
         <div className='flex justify-start items-center gap-2'>
           <Title3>혼모노</Title3>
-          <Body2 className='text-textSubtitle'>성해나</Body2>
+          <Body2 className='text-textSecondary'>성해나</Body2>
         </div>
         <div>
           <Body2Bold className='mb-3'>책소개</Body2Bold>
@@ -97,7 +103,7 @@ function DetailCard({ book, onToggle, isExpanded }: BookCardProps) {
           </Small>
         </div>
       </div>
-      <div className='flex flex-col items-end justify-between gap-5'>
+      <div className='flex flex-col items-end justify-between gap-5 md:col-span-1 col-span-full'>
         <DetailToggleButton
           className='flex-1 w-1/2'
           isExpanded={isExpanded}
