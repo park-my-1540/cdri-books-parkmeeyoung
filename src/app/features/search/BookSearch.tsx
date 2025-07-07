@@ -13,7 +13,7 @@ export default function BookSearch() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className='flex flex-row w-full justify-between items-center gap-6 flex-1'>
+    <div className='flex flex-row w-2/3 justify-between items-center gap-6 flex-1'>
       <div className='relative flex flex-row w-full items-center gap-2 px-7 bg-lightGray rounded-[100px]'>
         <Search />
         <SearchInput />
@@ -21,7 +21,7 @@ export default function BookSearch() {
       <div className='flex-shrink-0'>
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>
-            <Button variant='ghost' size='sm' className='lex-shrink-0'>
+            <Button variant='ghost' size='sm'>
               상세검색
             </Button>
           </PopoverTrigger>
