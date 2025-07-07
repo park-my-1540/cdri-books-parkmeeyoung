@@ -38,7 +38,9 @@ export default function DetailSearchFilter({ onClose }: Props) {
           placeholder='검색어 입력'
         />
       </div>
-      <Button fullWidth>검색하기</Button>
+      <Button size='sm' fullWidth>
+        검색하기
+      </Button>
     </>
   );
 }

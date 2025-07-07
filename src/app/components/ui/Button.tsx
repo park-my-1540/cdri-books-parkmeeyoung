@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 type ButtonProps = {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "ghost";
-  size?: "default" | "sm" | "lg" | "icon";
+  size?: "default" | "sm" | "icon";
   fullWidth?: boolean;
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -29,9 +29,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const sizeStyle = {
-      default: "h-10 px-4 py-2 text-sm",
       sm: "h-9 px-3 text-sm",
-      lg: "h-12 px-6 text-base",
+      default: "h-12 min-h-[3rem] max-h-[3rem] text-base",
       icon: "h-10 w-10 p-2",
     };
 
