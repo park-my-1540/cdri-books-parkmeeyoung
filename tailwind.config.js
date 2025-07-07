@@ -11,6 +11,8 @@ module.exports = {
   			lightGray: '#F2F4F6',
   			white: '#FFFFFF',
   			black: '#222222',
+  			borderGray: '#D2D6DA',
+  			uiGray: '#B1B8C0',
   			textPrimary: '#353c49',
   			textSecondary: '#6d7582',
   			textSubtitle: '#8d94a0',
