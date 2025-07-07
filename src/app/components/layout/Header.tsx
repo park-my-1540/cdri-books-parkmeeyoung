@@ -3,8 +3,10 @@ import Tab from "@/components/common/Tabs";
 
 export default function Header() {
   return (
-    <header className='flex justify-between items-start'>
-      <Title1 onClick={() => {}}>CERTICOS BOOKS</Title1>
+    <header className='flex justify-center items-center py-6'>
+      <Title1 className='absolute left-40' onClick={() => {}}>
+        CERTICOS BOOKS
+      </Title1>
       <Tab />
     </header>
   );
