@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
+import { Slot } from "@radix-ui/react-slot";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -7,6 +8,7 @@ type ButtonProps = {
   size?: "default" | "sm" | "icon";
   fullWidth?: boolean;
   className?: string;
+  asChild?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -17,11 +19,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = "default",
       fullWidth,
       className,
+      asChild = false,
       ...props
     },
     ref
   ) => {
-    const base = "rounded-lg";
+    const Component = asChild ? Slot : "button";
+    const base =
+      "inline-flex items-center justify-center whitespace-nowrap rounded-lg";
     const variantStyle = {
       primary: "bg-primary text-white",
       secondary: "bg-lightGray text-black",
@@ -35,7 +40,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     return (
-      <button
+      <Component
         ref={ref}
         {...props}
         className={clsx(
@@ -47,7 +52,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       >
         {children}
-      </button>
+      </Component>
     );
   }
 );
