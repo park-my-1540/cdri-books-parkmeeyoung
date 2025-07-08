@@ -1,8 +1,8 @@
 "use client";
 import { Title2 } from "@components/ui/Typography";
-import BookSearch from "@/features/search/BookSearch";
+import BookSearch from "@/features/book/search/components/BookSearch";
 import BookList from "@/features/list/BookList";
-import NoResult from "./components/common/NoResult";
+import NoResult from "./features/book/components/BookNoResult";
 export default function Home() {
   return (
     <div className='pt-10 space-y-6'>

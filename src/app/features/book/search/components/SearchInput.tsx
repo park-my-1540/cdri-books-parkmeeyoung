@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { isEmpty } from "@/util/util";
-import SearchHistoryDropdown from "./RecentResult";
-import { useSearchHistory } from "@/hooks/useSearchHistory";
+import { useSearchHistory } from "@book/search/hooks/useSearchHistory";
+import SearchHistoryDropdown from "@book/search/components/SearchHistoryDropdown";
 
 export default function SearchInput() {
   const {

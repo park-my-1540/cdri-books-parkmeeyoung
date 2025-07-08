@@ -6,8 +6,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useState } from "react";
-import SearchInput from "./SearchInput";
-import DetailSearchFilter from "./DetailSearchFilter";
+import SearchInput from "@book/search/components/SearchInput";
+import DetailSearchFilter from "@book/search/components/DetailSearchFilter";
 
 export default function BookSearch() {
   const [open, setOpen] = useState(false);
