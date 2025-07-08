@@ -8,3 +8,9 @@ export function isEmpty(value: unknown): boolean {
   }
   return false;
 }
+
+export function formatKrCurrency(amount: number | string): string {
+  const num = typeof amount === "string" ? parseInt(amount, 10) : amount;
+  if (isNaN(num)) return "0원";
+  return `${num.toLocaleString("ko-KR")}원`;
+}

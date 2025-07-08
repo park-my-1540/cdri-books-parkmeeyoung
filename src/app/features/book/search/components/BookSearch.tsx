@@ -13,7 +13,7 @@ export default function BookSearch() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className='flex flex-row w-full md:w-2/3 justify-between items-center gap-6 flex-1'>
+    <div className='flex flex-row w-full md:w-2/3 justify-between items-center gap-6 flex-1 my-6'>
       <div className='relative flex flex-row w-full items-center gap-2 px-7 bg-lightGray rounded-[100px]'>
         <Search />
         <SearchInput />
