@@ -1,6 +1,6 @@
 "use client";
 import { Title2 } from "@components/ui/Typography";
-import BookSearch from "@/features/book/search/components/BookSearch";
+import BookSearch from "@/features/search/components/BookSearch";
 import BookListPanel from "@book/components/BookListPanel";
 import { useFetchBookQuery } from "@book/queries/useFetchBookQuery";
 

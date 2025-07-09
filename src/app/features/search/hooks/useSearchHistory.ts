@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
 import { isEmpty } from "@/util/util";
+import { useSearchStore } from "../stores/useSearchStore";
 
-export function useSearchHistory(initialHistory: string[] = []) {
-  const [history, setHistory] = useState(initialHistory);
+export function useSearchHistory() {
+  const history = useSearchStore((state) => state.search);
   const [word, setWord] = useState("");
   const [matchList, setMatchList] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -32,15 +33,6 @@ export function useSearchHistory(initialHistory: string[] = []) {
     [history]
   );
 
-  const remove = useCallback(
-    (keyword: string) => {
-      const updated = history.filter((item) => item !== keyword);
-      setHistory(updated);
-      filter(word);
-    },
-    [history, word, filter]
-  );
-
   return {
     word,
     history,
@@ -48,7 +40,6 @@ export function useSearchHistory(initialHistory: string[] = []) {
     isOpen,
     setIsOpen,
     filter,
-    remove,
     setWord,
   };
 }

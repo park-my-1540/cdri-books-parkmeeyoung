@@ -9,17 +9,21 @@ export default function BookCard({ book }: { book: BookSummary | BookDetail }) {
     setIsExpanded((prev) => !prev);
   }, []);
 
-  return isExpanded ? (
-    <DetailCard
-      book={book as BookDetail}
-      onToggle={onToggle}
-      isExpanded={isExpanded}
-    />
-  ) : (
-    <SummaryCard
-      book={book as BookSummary}
-      onToggle={onToggle}
-      isExpanded={isExpanded}
-    />
+  return (
+    <div>
+      {isExpanded ? (
+        <DetailCard
+          book={book as BookDetail}
+          onToggle={onToggle}
+          isExpanded={isExpanded}
+        />
+      ) : (
+        <SummaryCard
+          book={book as BookSummary}
+          onToggle={onToggle}
+          isExpanded={isExpanded}
+        />
+      )}
+    </div>
   );
 }

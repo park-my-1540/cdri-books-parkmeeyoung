@@ -23,8 +23,8 @@
       "@components/*": ["./src/app/components/*"],
       "@features/*": ["./src/app/features/*"],
       "@book/*": ["./src/app/features/book/*"],         // book 하위 폴더 import 쉽게
-      "@book/search/*": ["./src/app/features/book/search/*"],
-      "@book/wishlist/*": ["./src/app/features/book/wishlist/*"]
+      "@book/wishlist/*": ["./src/app/features/book/wishlist/*"],
+      "@search/*": ["./src/app/features/search/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
