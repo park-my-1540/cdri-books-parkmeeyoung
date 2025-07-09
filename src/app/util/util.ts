@@ -1,3 +1,5 @@
+import { BookItem } from "@/features/book/type";
+
 export function isEmpty(value: unknown): boolean {
   if (value == null) return true; // null 또는 undefined
   if (typeof value === "object") {
@@ -13,4 +15,11 @@ export function formatKrCurrency(amount: number | string): string {
   const num = typeof amount === "string" ? parseInt(amount, 10) : amount;
   if (isNaN(num)) return "0원";
   return `${num.toLocaleString("ko-KR")}원`;
+}
+
+export function generateId(book: BookItem): string {
+  if (book.isbn) return book.isbn.split(" ")[0];
+
+  const raw = `${book.title}-${book.authors.join(",")}-${book.publisher}`;
+  return raw.replace(/\s+/g, "").toLowerCase();
 }

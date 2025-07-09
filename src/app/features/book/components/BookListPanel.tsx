@@ -1,10 +1,15 @@
-import { useFetchBookQuery } from "../queries/useFetchBookQuery";
+import { BookItem } from "../type";
 import BookCard from "./BookCard";
 import BookNoResult from "./BookNoResult";
 
-export default function BookListSection({ subtitle }: { subtitle: string }) {
-  const { data: books, isLoading } = useFetchBookQuery();
+interface Props {
+  subtitle: string;
+  books: BookItem[];
+  isLoading?: boolean;
+  isError?: boolean;
+}
 
+export default function BookListPanel({ subtitle, books, isLoading }: Props) {
   return (
     <>
       <div className='text-textPrimary mb-2'>

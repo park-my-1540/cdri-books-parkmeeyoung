@@ -3,24 +3,19 @@ import { Title3, Body2, Body2Bold, Small } from "@components/ui/Typography";
 import DetailToggleButton from "@/components/ui/ToggleButton";
 import type { DetailCardProps } from "./type";
 import { formatKrCurrency } from "@/util/util";
-import BookThumbnail from "../BookThumbnail";
+import Thumbnail from "./Thumbnail";
 
 export default function DetailCard({
   book,
   onToggle,
   isExpanded,
 }: DetailCardProps) {
-  const { title, authors, price, thumbnail, contents, sale_price, url } = book;
+  const { title, authors, price, contents, sale_price, url } = book;
 
   return (
-    <div className='border-b border-border grid grid-cols-[1fr_1fr_auto] md:grid-cols-[auto_1fr_240px] gap-1 md:gap-8 py-5 pl-5'>
-      <BookThumbnail
-        width={210}
-        height={280}
-        size='lg'
-        alt={title}
-        src={thumbnail}
-      />
+    <div className='grid grid-cols-[1fr_1fr_auto] md:grid-cols-[auto_1fr_240px] gap-1 md:gap-8 py-5 pl-5 border-b border-border '>
+      <Thumbnail width={210} height={280} size='lg' book={book} />
+
       <div className='grid grid-rows w-full gap-2'>
         <div className='inline-flex gap-2 items-center justify-between'>
           <Title3 className='break-keep'>{title}</Title3>
@@ -33,6 +28,7 @@ export default function DetailCard({
           <Small className='break-keep'>{contents}</Small>
         </div>
       </div>
+
       <div className='flex flex-col items-end justify-between gap-5 md:col-span-1 col-span-full'>
         <DetailToggleButton
           className='flex-1 w-1/2'

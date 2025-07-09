@@ -1,34 +1,33 @@
 import Image from "next/image";
 import LikeButton from "@/components/common/LikeButton";
+import { BookItem } from "../../type";
 
 type BookThumbnailProps = {
-  src: string;
-  alt: string;
+  book: BookItem;
   width?: number;
   height?: number;
   size?: "sm" | "lg";
 };
 
+const fallback =
+  "https://search1.kakaocdn.net/thumb/C116x164.q85/?fname=http://search1.daumcdn.net/search/statics/common/img/noimg/4grid.png";
+
 export default function BookThumbnail({
-  src,
-  alt,
+  book,
   width = 48,
   height = 68,
   size = "sm",
 }: BookThumbnailProps) {
-  const fallback =
-    "https://search1.kakaocdn.net/thumb/C116x164.q85/?fname=http://search1.daumcdn.net/search/statics/common/img/noimg/4grid.png";
-
   return (
     <div className='relative' style={{ maxWidth: width, maxHeight: height }}>
       <Image
         width={width}
         height={height}
-        alt={alt}
+        alt={book.title}
         className='size-full object-cover'
-        src={src === "" ? fallback : src}
+        src={book.thumbnail === "" ? fallback : book.thumbnail}
       />
-      <LikeButton size={size} />
+      <LikeButton book={book} size={size} />
     </div>
   );
 }
