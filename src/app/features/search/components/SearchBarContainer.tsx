@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Button from "@components/ui/Button";
 import {
   Popover,
@@ -13,7 +13,9 @@ import { X } from "lucide-react";
 export default function BookSearch() {
   const [open, setOpen] = useState(false);
   const handleOpenChange = (value: boolean) => setOpen(value);
-  const handleClose = () => setOpen(false);
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
 
   return (
     <div className='relative flex flex-row w-full md:w-2/3 justify-between items-center gap-6 flex-1 my-6 z-10'>
@@ -29,8 +31,8 @@ export default function BookSearch() {
             className='py-10 px-5 space-y-5 w-[360px]'
             sideOffset={15}
           >
-            <CloseButton onClick={() => handleClose} />
-            <SearchDetailFilter onClose={() => handleClose} />
+            <CloseButton onClick={handleClose} />
+            <SearchDetailFilter onClose={handleClose} />
           </PopoverContent>
         </Popover>
       </div>

@@ -6,6 +6,7 @@ import { useBookParams } from "@/features/book/hooks/useBookParam";
 import { useSearchInput } from "@search/hooks/useSearchInput";
 import { useSearchHistory } from "./useSearchHistory";
 import { useSearchOpen } from "./useSearchOpen";
+import { isEmpty } from "@/util/util";
 
 export function useSearchSubmit() {
   const { addToHistory } = useSearchHistory();
@@ -14,10 +15,12 @@ export function useSearchSubmit() {
   const { setIsOpen, isOpen } = useSearchOpen();
 
   const submit = (word: string, target?: TargetParams) => {
+    if (isEmpty(word)) return;
     addToHistory(word);
     setQuery(word);
     setWord(word);
     if (target) setTarget(target);
+    else setTarget("title");
     setIsOpen(false);
   };
 

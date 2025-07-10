@@ -6,7 +6,6 @@ import { useFetchBookQuery } from "@book/queries/useFetchBookQuery";
 
 export default function Home() {
   const { data: books = [], isFetching } = useFetchBookQuery();
-
   return (
     <div className='pt-10'>
       <Title2>도서 검색</Title2>
