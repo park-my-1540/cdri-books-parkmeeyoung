@@ -11,7 +11,7 @@ type LikeButtonProps = {
   size?: "sm" | "lg";
 };
 
-function LikeButton({ size = "sm", book }: LikeButtonProps) {
+export default function LikeButton({ size = "sm", book }: LikeButtonProps) {
   const { addToWishlist, removeToWishlist, isInWishlist } = useWishList();
   const dimension = size === "lg" ? 24 : 16;
   const liked = isInWishlist(book.id);
@@ -37,5 +37,3 @@ function LikeButton({ size = "sm", book }: LikeButtonProps) {
     </button>
   );
 }
-
-export default React.memo(LikeButton);

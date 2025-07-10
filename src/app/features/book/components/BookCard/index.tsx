@@ -1,13 +1,11 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import DetailCard from "./DetailCard";
 import SummaryCard from "./SummaryCard";
 import { BookDetail, BookSummary } from "../../type";
 
 export default function BookCard({ book }: { book: BookSummary | BookDetail }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const onToggle = useCallback(() => {
-    setIsExpanded((prev) => !prev);
-  }, []);
+  const onToggle = () => setIsExpanded((prev) => !prev);
 
   return (
     <div>

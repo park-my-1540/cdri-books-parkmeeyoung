@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "@/components/ui/Button";
 import { Title3, Body2, Body2Bold, Small } from "@components/ui/Typography";
 import DetailToggleButton from "@/components/ui/ToggleButton";
@@ -6,7 +5,11 @@ import type { DetailCardProps } from "./type";
 import { formatKrCurrency } from "@/util/util";
 import Thumbnail from "./Thumbnail";
 
-function DetailCard({ book, onToggle, isExpanded }: DetailCardProps) {
+export default function DetailCard({
+  book,
+  onToggle,
+  isExpanded,
+}: DetailCardProps) {
   const { title, authors, price, contents, sale_price, url } = book;
 
   return (
@@ -72,5 +75,3 @@ function BookPrice({
     </div>
   );
 }
-
-export default React.memo(DetailCard);

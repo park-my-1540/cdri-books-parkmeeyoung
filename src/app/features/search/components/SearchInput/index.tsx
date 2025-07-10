@@ -4,7 +4,7 @@ import InputBox from "@search/components/SearchInput/InputBox";
 import ListBox from "@search/components/SearchInput/ListBox";
 import { useSearchOpen } from "@search/hooks/useSearchOpen";
 
-function SearchInput() {
+export default function SearchInput() {
   const ref = useRef<HTMLDivElement>(null);
   const { setIsOpen } = useSearchOpen();
 
@@ -30,5 +30,3 @@ function SearchInput() {
     </div>
   );
 }
-
-export default React.memo(SearchInput);

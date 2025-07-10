@@ -6,7 +6,7 @@ import { useSearchSubmit } from "@search/hooks/useSearchSubmit";
 import { useMatchHistory } from "@search/hooks/useMatchHistory";
 import { useSearchHistory } from "@search/hooks/useSearchHistory";
 
-const ListBox = React.memo(function ListBox() {
+export default function ListBox() {
   const { word, isOpen } = useSearchSubmit();
   const { matchList } = useMatchHistory(word);
   const { removeToHistory, history } = useSearchHistory();
@@ -17,6 +17,4 @@ const ListBox = React.memo(function ListBox() {
   return isListOpen ? (
     <SearchHistoryList list={listToShow} onRemove={removeToHistory} />
   ) : null;
-});
-
-export default ListBox;
+}

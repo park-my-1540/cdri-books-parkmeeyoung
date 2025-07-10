@@ -5,7 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import SearchDetailFilter from "@/features/search/components/SearchDetailFilter";
 import SearchInput from "@/features/search/components/SearchInput";
 import { X } from "lucide-react";
@@ -13,7 +13,7 @@ import { X } from "lucide-react";
 export default function BookSearch() {
   const [open, setOpen] = useState(false);
   const handleOpenChange = (value: boolean) => setOpen(value);
-  const handleClose = useCallback(() => setOpen(false), []);
+  const handleClose = setOpen(false);
 
   return (
     <div className='relative flex flex-row w-full md:w-2/3 justify-between items-center gap-6 flex-1 my-6 z-10'>
@@ -29,8 +29,8 @@ export default function BookSearch() {
             className='py-10 px-5 space-y-5 w-[360px]'
             sideOffset={15}
           >
-            <CloseButton onClick={handleClose} />
-            <SearchDetailFilter onClose={handleClose} />
+            <CloseButton onClick={() => handleClose} />
+            <SearchDetailFilter onClose={() => handleClose} />
           </PopoverContent>
         </Popover>
       </div>
@@ -38,14 +38,10 @@ export default function BookSearch() {
   );
 }
 
-const CloseButton = React.memo(function CloseButton({
-  onClick,
-}: {
-  onClick: () => void;
-}) {
+function CloseButton({ onClick }: { onClick: () => void }) {
   return (
     <button className='absolute top-5 right-5' onClick={onClick}>
       <X className='w-6 h-6 text-textSecondary' />
     </button>
   );
-});
+}

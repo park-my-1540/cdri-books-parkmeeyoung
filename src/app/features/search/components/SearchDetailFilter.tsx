@@ -12,7 +12,11 @@ const filterOptions = [
   { id: "publisher", name: "출판사" },
 ];
 
-function DetailSearchFilter({ onClose }: { onClose: () => void }) {
+export default function DetailSearchFilter({
+  onClose,
+}: {
+  onClose: () => void;
+}) {
   const [selectedFilter, setSelectedFilter] = useState<TargetParams>("title");
   const [keyword, setKeyword] = useState("");
   const { submit } = useSearchSubmit();
@@ -59,5 +63,3 @@ function DetailSearchFilter({ onClose }: { onClose: () => void }) {
     </>
   );
 }
-
-export default React.memo(DetailSearchFilter);

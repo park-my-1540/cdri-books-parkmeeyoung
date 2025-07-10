@@ -3,7 +3,7 @@ import { isEmpty } from "@/util/util";
 import { useSearchSubmit } from "@search/hooks/useSearchSubmit";
 import { useSearchOpen } from "@search/hooks/useSearchOpen";
 
-const InputBox = React.memo(function InputBox() {
+export default function InputBox() {
   const { word, submit, updateWord } = useSearchSubmit();
   const { setIsOpen } = useSearchOpen();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +30,4 @@ const InputBox = React.memo(function InputBox() {
       />
     </div>
   );
-});
-
-export default InputBox;
+}

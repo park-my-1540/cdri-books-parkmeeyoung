@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Caption } from "@/components/ui/Typography";
 import { X } from "lucide-react";
 import { useSearchSubmit } from "@search/hooks/useSearchSubmit";
@@ -14,7 +14,11 @@ type ItemProps = {
   onRemove: (keyword: string) => void;
 };
 
-const KeywordItem = ({ keyword, onClick, onRemove }: ItemProps) => {
+const KeywordItem = React.memo(function KeywordItem({
+  keyword,
+  onClick,
+  onRemove,
+}: ItemProps) {
   return (
     <div className='flex items-center justify-between w-full'>
       <a onClick={() => onClick(keyword)} className='cursor-pointer w-full'>
@@ -25,12 +29,23 @@ const KeywordItem = ({ keyword, onClick, onRemove }: ItemProps) => {
       </button>
     </div>
   );
-};
+});
 
 function SearchHistoryList({ list, onRemove }: Props) {
   const { submit } = useSearchSubmit();
-  const handleClick = (keyword: string) => submit(keyword);
-  const handleRemove = (keyword: string) => onRemove(keyword);
+  const handleClick = useCallback(
+    (keyword: string) => {
+      submit(keyword);
+    },
+    [submit]
+  );
+
+  const handleRemove = useCallback(
+    (keyword: string) => {
+      onRemove(keyword);
+    },
+    [onRemove]
+  );
 
   return (
     <div className='absolute top-[50px] rounded-b-3xl left-0 w-full py-5 pr-5 pl-[60px] space-y-2 dropdown-container bg-lightGray '>
