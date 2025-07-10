@@ -1,11 +1,11 @@
 "use client";
 import { Title2 } from "@components/ui/Typography";
-import BookSearch from "@/features/search/components/BookSearch";
+import BookSearch from "@/features/search/components/SearchBarContainer";
 import BookListPanel from "@book/components/BookListPanel";
 import { useFetchBookQuery } from "@book/queries/useFetchBookQuery";
 
 export default function Home() {
-  const { data: books = [], isLoading, isError } = useFetchBookQuery();
+  const { data: books = [], isFetching } = useFetchBookQuery();
 
   return (
     <div className='pt-10'>
@@ -14,8 +14,7 @@ export default function Home() {
       <BookListPanel
         subtitle='도서 검색 결과'
         books={books}
-        isLoading={isLoading}
-        isError={isError}
+        isFetching={isFetching}
       />
     </div>
   );

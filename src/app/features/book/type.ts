@@ -1,7 +1,9 @@
+export type TargetParams = "title" | "person" | "publisher";
 export type FetchBooksParams = {
   query: string;
   page?: number;
   size?: number;
+  target?: TargetParams;
 };
 
 export type BookItem = {

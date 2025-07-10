@@ -5,19 +5,19 @@ import BookNoResult from "./BookNoResult";
 interface Props {
   subtitle: string;
   books: BookItem[];
-  isLoading?: boolean;
-  isError?: boolean;
+  isFetching?: boolean;
 }
 
-export default function BookListPanel({ subtitle, books, isLoading }: Props) {
+export default function BookListPanel({ subtitle, books, isFetching }: Props) {
   return (
     <>
       <div className='text-textPrimary mb-2'>
         {subtitle} 총 <span className='text-primary'>{books?.length}</span>건
       </div>
 
-      {isLoading ? <div>로딩중입니다...</div> : null}
-      {!books?.length ? (
+      {isFetching ? (
+        <div>로딩중입니다...</div>
+      ) : !books?.length ? (
         <BookNoResult message='검색된 결과가 없습니다.' />
       ) : (
         <>
