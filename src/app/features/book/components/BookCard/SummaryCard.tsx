@@ -4,12 +4,9 @@ import DetailToggleButton from "@/components/ui/ToggleButton";
 import type { SummaryCardProps } from "./type";
 import { formatKrCurrency } from "@/util/util";
 import Thumbnail from "./Thumbnail";
+import React from "react";
 
-export default function SummaryCard({
-  book,
-  onToggle,
-  isExpanded,
-}: SummaryCardProps) {
+function SummaryCard({ book, onToggle, isExpanded }: SummaryCardProps) {
   const { title, authors, price, sale_price, url } = book;
   return (
     <div className='grid grid-cols-[auto_1fr_240px] gap-1 md:gap-8 items-center justify-between py-3 pl-5 border-b border-border '>
@@ -40,3 +37,5 @@ export default function SummaryCard({
     </div>
   );
 }
+
+export default React.memo(SummaryCard);

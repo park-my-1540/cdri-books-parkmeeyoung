@@ -1,9 +1,10 @@
+import React from "react";
 import Button from "@components/ui/Button";
 import SelectBox from "@components/common/SelectBox";
-import { X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TargetParams } from "@/features/book/type";
 import { useSearchSubmit } from "@search/hooks/useSearchSubmit";
+import { useSearchInput } from "../hooks/useSearchInput";
 
 const filterOptions = [
   { id: "title", name: "제목" },
@@ -11,20 +12,23 @@ const filterOptions = [
   { id: "publisher", name: "출판사" },
 ];
 
-export default function DetailSearchFilter({
-  onClose,
-}: {
-  onClose: () => void;
-}) {
+function DetailSearchFilter({ onClose }: { onClose: () => void }) {
   const [selectedFilter, setSelectedFilter] = useState<TargetParams>("title");
   const [keyword, setKeyword] = useState("");
   const { submit } = useSearchSubmit();
+  const { setWord } = useSearchInput();
+
+  useEffect(() => {
+    setWord("");
+  }, []);
+
+  const onSubmit = () => {
+    submit(keyword, selectedFilter);
+    onClose();
+  };
 
   return (
     <>
-      <button className='absolute top-5 right-5' onClick={onClose}>
-        <X className='w-6 h-6 text-textSecondary' />
-      </button>
       <div className='flex'>
         <div className='min-w-[100px]'>
           <SelectBox
@@ -40,7 +44,7 @@ export default function DetailSearchFilter({
           />
         </div>
         <input
-          type='search'
+          type='text'
           name='search'
           onChange={(e) => setKeyword(e.target.value)}
           value={keyword}
@@ -49,13 +53,11 @@ export default function DetailSearchFilter({
           placeholder='검색어 입력'
         />
       </div>
-      <Button
-        size='sm'
-        fullWidth
-        onClick={() => submit(keyword, selectedFilter)}
-      >
+      <Button size='sm' fullWidth onClick={() => onSubmit()}>
         검색하기
       </Button>
     </>
   );
 }
+
+export default React.memo(DetailSearchFilter);

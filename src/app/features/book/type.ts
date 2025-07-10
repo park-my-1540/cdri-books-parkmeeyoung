@@ -6,7 +6,8 @@ export type FetchBooksParams = {
   target?: TargetParams;
 };
 
-export type BookItem = {
+// 전체 API 응답 타입
+export type BookItemResponse = {
   id: string;
   url: string;
   title: string;
@@ -23,10 +24,18 @@ export type BookItem = {
 };
 
 export type FetchBooksResponse = {
-  documents: BookItem[];
+  documents: BookItemResponse[];
   meta: {
     is_end: boolean;
     pageable_count: number;
     total_count: number;
   };
 };
+
+export type BookItem = BookSummary | BookDetail;
+
+export type BookSummary = Pick<
+  BookItemResponse,
+  "id" | "title" | "authors" | "price" | "sale_price" | "thumbnail" | "url"
+>;
+export type BookDetail = BookSummary & Pick<BookItemResponse, "contents">;

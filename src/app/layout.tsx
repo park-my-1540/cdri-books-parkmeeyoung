@@ -22,7 +22,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <ErrorBoundary fallback={<Fallback />}>
-            <div className='max-w-4xl mx-auto'>{children}</div>
+            <div className='max-w-4xl mx-auto pb-32'>{children}</div>
           </ErrorBoundary>
         </Providers>
         <Toaster position='top-center' />

@@ -1,16 +1,4 @@
-export type BookSummary = {
-  id: string;
-  title: string;
-  authors: string[];
-  price: number;
-  sale_price: number;
-  thumbnail: string;
-  url: string;
-};
-
-export type BookDetail = BookSummary & {
-  contents: string;
-};
+import { BookDetail, BookSummary } from "@book/type";
 
 export type SummaryCardProps = {
   book: BookSummary;

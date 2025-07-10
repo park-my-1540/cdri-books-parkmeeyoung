@@ -21,8 +21,8 @@ export default function BookListPanel({ subtitle, books, isFetching }: Props) {
         <BookNoResult message='검색된 결과가 없습니다.' />
       ) : (
         <>
-          {books.map((book, index) => (
-            <BookCard key={`${index}-${book.title}`} book={book} />
+          {books.map((book) => (
+            <BookCard key={book.id} book={book} />
           ))}
         </>
       )}

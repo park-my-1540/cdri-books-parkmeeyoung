@@ -5,11 +5,13 @@ import { TargetParams } from "@/features/book/type";
 import { useBookParams } from "@/features/book/hooks/useBookParam";
 import { useSearchInput } from "@search/hooks/useSearchInput";
 import { useSearchHistory } from "./useSearchHistory";
+import { useSearchOpen } from "./useSearchOpen";
 
 export function useSearchSubmit() {
   const { addToHistory } = useSearchHistory();
   const { setQuery, setTarget } = useBookParams();
-  const { setIsOpen, isOpen, setWord, word } = useSearchInput();
+  const { setWord, word } = useSearchInput();
+  const { setIsOpen, isOpen } = useSearchOpen();
 
   const submit = (word: string, target?: TargetParams) => {
     addToHistory(word);

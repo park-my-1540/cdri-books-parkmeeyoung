@@ -8,13 +8,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import { TargetParams } from "@/features/book/type";
 
 type selectProps = {
   name: string;
   placeholder?: string;
   value: string;
   className?: string;
-  onChange: () => void;
+  onChange: (value: TargetParams) => void;
   options: {
     key: string;
     value: string;

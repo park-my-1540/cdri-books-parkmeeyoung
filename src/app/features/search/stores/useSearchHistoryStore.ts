@@ -20,7 +20,11 @@ export const useSearchHistoryStore = create<HistoryStore>()(
       addToHistory: (keyword) =>
         set((state) => {
           if (state.history.find((h) => h === keyword)) return state;
-          return { history: [...state.history, keyword] };
+          const newHistory =
+            state.history.length >= 8
+              ? [keyword, ...state.history.slice(0, 7)]
+              : [keyword, ...state.history];
+          return { history: newHistory };
         }),
       removeToHistory: (keyword) =>
         set((state) => {
