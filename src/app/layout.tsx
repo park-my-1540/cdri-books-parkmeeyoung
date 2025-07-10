@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Header from "@components/layout/Header";
+import Fallback from "@components/layout/Fallback";
 import "./globals.css";
 import Providers from "./providers";
+import { Toaster } from "sonner";
+import { ErrorBoundary } from "react-error-boundary";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,8 +21,11 @@ export default function RootLayout({
       <body className='h-full'>
         <Providers>
           <Header />
-          <div className='max-w-4xl mx-auto'>{children}</div>
+          <ErrorBoundary fallback={<Fallback />}>
+            <div className='max-w-4xl mx-auto'>{children}</div>
+          </ErrorBoundary>
         </Providers>
+        <Toaster position='top-center' />
       </body>
     </html>
   );

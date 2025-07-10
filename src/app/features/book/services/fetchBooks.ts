@@ -1,7 +1,6 @@
 import axios from "axios";
 import { FetchBooksParams, FetchBooksResponse } from "../type";
 import { generateId } from "@/util/util";
-
 /**
  * 카카오 도서 API를 호출하여 도서 목록을 가져오는 함수
  *
@@ -29,8 +28,7 @@ export const fetchBooks = async (
       })),
     };
   } catch (error) {
-    console.log(error);
-    // todo
+    console.error("fetchBooks error: " + error);
     throw error;
   }
 };
