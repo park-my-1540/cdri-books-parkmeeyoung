@@ -24,7 +24,7 @@ export default function DetailSearchFilter({
 
   useEffect(() => {
     setWord("");
-  }, []);
+  }, [setWord]);
 
   const onSubmit = () => {
     submit(keyword, selectedFilter);

@@ -14,6 +14,7 @@ type ItemProps = {
   onRemove: (keyword: string) => void;
 };
 
+// 개별 검색어 항목 컴포넌트
 const KeywordItem = React.memo(function KeywordItem({
   keyword,
   onClick,
@@ -31,6 +32,7 @@ const KeywordItem = React.memo(function KeywordItem({
   );
 });
 
+// 전체 검색 기록 리스트
 function SearchHistoryList({ list, onRemove }: Props) {
   const { submit } = useSearchSubmit();
   const handleClick = useCallback(

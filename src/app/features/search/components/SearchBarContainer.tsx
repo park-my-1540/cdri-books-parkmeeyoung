@@ -13,7 +13,7 @@ import { X } from "lucide-react";
 export default function BookSearch() {
   const [open, setOpen] = useState(false);
   const handleOpenChange = (value: boolean) => setOpen(value);
-  const handleClose = setOpen(false);
+  const handleClose = () => setOpen(false);
 
   return (
     <div className='relative flex flex-row w-full md:w-2/3 justify-between items-center gap-6 flex-1 my-6 z-10'>
