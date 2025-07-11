@@ -14,7 +14,11 @@ type ItemProps = {
   onRemove: (keyword: string) => void;
 };
 
-// 개별 검색어 항목 컴포넌트
+/**
+ * 개별 검색어 항목 컴포넌트
+ * props 함수(onClick, onRemove)의 레퍼런스 고정을 위해 React.memo 사용
+ * 리스트 항목이 자주 바뀌므로 리렌더 자체를 막진 못하지만, 불필요한 함수 비교를 줄임
+ */
 const KeywordItem = React.memo(function KeywordItem({
   keyword,
   onClick,
